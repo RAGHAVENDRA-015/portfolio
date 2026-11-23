@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Mail, ArrowUp } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
@@ -5,6 +7,13 @@ import { person } from "@/data/portfolio";
 
 export default function Footer() {
   const currentYear = 2025;
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <footer className="border-t border-[#D0D0D0] bg-[#E5E5E5]">
@@ -91,14 +100,15 @@ export default function Footer() {
           <p className="font-mono text-[11px] tracking-wider text-[#777777] uppercase">
             © {currentYear} {person.name}. All rights reserved.
           </p>
-          <a
-            href="#top"
-            className="flex items-center gap-2 font-mono text-[11px] tracking-wider text-[#777777] uppercase hover:text-[#171717] transition-colors duration-200"
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="flex items-center gap-2 font-mono text-[11px] tracking-wider text-[#777777] uppercase hover:text-[#171717] transition-colors duration-200 cursor-pointer"
             aria-label="Back to top"
           >
             Back to top
             <ArrowUp size={12} aria-hidden="true" />
-          </a>
+          </button>
         </div>
       </div>
     </footer>
