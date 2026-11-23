@@ -1,0 +1,176 @@
+/* Hallmark · v2.0.0 · portfolio · editorial · job: hire · custom */
+/* critique: clean minimalist editorial, monochrome, restrained — well-matched to subject */
+@import "tailwindcss";
+
+:root {
+  /* Color tokens */
+  --color-bg: #EEEEEE;
+  --color-bg-secondary: #E5E5E5;
+  --color-text-primary: #171717;
+  --color-text-secondary: #777777;
+  --color-accent: #444444;
+  --color-white: #FFFFFF;
+  --color-border: #D0D0D0;
+  --color-black: #111111;
+
+  /* Typography tokens */
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), "Courier New", monospace;
+
+  /* Spacing tokens */
+  --container-max: 1280px;
+  --section-padding-y: 5rem;
+  --section-padding-x: 1.5rem;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-text-primary);
+  color: var(--color-white);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Corner bracket decoration */
+.bracket-corner {
+  position: relative;
+}
+
+.bracket-corner::before,
+.bracket-corner::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--color-text-primary);
+  border-style: solid;
+}
+
+.bracket-corner::before {
+  top: -6px;
+  left: -6px;
+  border-width: 1.5px 0 0 1.5px;
+}
+
+.bracket-corner::after {
+  bottom: -6px;
+  right: -6px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+/* Portrait bracket decoration */
+.portrait-frame {
+  position: relative;
+  display: inline-block;
+}
+
+.portrait-frame::before,
+.portrait-frame::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: var(--color-text-primary);
+  border-style: solid;
+  z-index: 10;
+}
+
+.portrait-frame .bracket-tl,
+.portrait-frame .bracket-tr,
+.portrait-frame .bracket-bl,
+.portrait-frame .bracket-br {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  z-index: 10;
+}
+
+.portrait-frame .bracket-tl {
+  top: -8px;
+  left: -8px;
+  border-top: 1.5px solid var(--color-text-primary);
+  border-left: 1.5px solid var(--color-text-primary);
+}
+
+.portrait-frame .bracket-tr {
+  top: -8px;
+  right: -8px;
+  border-top: 1.5px solid var(--color-text-primary);
+  border-right: 1.5px solid var(--color-text-primary);
+}
+
+.portrait-frame .bracket-bl {
+  bottom: -8px;
+  left: -8px;
+  border-bottom: 1.5px solid var(--color-text-primary);
+  border-left: 1.5px solid var(--color-text-primary);
+}
+
+.portrait-frame .bracket-br {
+  bottom: -8px;
+  right: -8px;
+  border-bottom: 1.5px solid var(--color-text-primary);
+  border-right: 1.5px solid var(--color-text-primary);
+}
+
+/* Fade-in animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+/* Mono label style */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+/* Section divider */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
